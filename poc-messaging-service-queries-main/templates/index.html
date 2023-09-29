@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Conversations</title>
+    <link href="{{access_url}}/static/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+</head>
+<body>
+
+
+<section class="section is-large pt-5 pb-5">
+    <div class="columns ">
+        <div class="full_height column is-one-fifth box mb-0" id="conversationsColumn">
+            <!--  Conversations  -->
+            <p>Conversations</p>
+
+            <form method="" action="" id="conversationForm" class="mb-5" onsubmit="createConversation(event)">
+                <div class="field is-grouped">
+                    <div class="control is-expanded">
+                    <!-- <textarea class="textarea" placeholder="Message" id="messageField"></textarea>-->
+                        <input type="text" placeholder="Name" id="conversationField" class="input">
+                    </div>
+                    <div class="control">
+                        <input type="submit" value="+" class="button">
+                    </div>
+                </div>
+            </form>
+
+        </div>
+        <div class="full_height column box" id="messagesColumn">
+            <!-- Add User to conversation -->
+            <form method="" action="" id="addUserToConversationForm" class="mb-5" onsubmit="addUser(event)">
+                <div class="field is-grouped">
+                    <div class="control is-expanded">
+                        <input type="text" placeholder="User ID" id="userIdField" class="input">
+                    </div>
+                    <div class="control">
+                        <input type="submit" value="+" class="button">
+                    </div>
+                    <div class="control">
+                        <p class="buttons">
+                            <button class="button" onclick="listUsers()">
+                                <span class="icon is-small">
+                                    <i class="fas fa-info"></i>
+                                </span>
+                            </button>
+                        </p>
+                    </div>
+                </div>
+            </form>
+
+
+            <!--    Messages    -->
+
+
+            <!-- Message form -->
+            <form method="" action="" id="messageForm" class="mb-0" onsubmit="sendMessage(event)">
+                <div class="field is-grouped">
+                    <div class="control is-expanded">
+                    <!-- <textarea class="textarea" placeholder="Message" id="messageField"></textarea>-->
+                        <input type="text" placeholder="Message" id="messageField" class="input">
+                    </div>
+                    <div class="control">
+                        <input type="submit" value="Envoyer" class="button">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <!--  Login Div  -->
+    <div class="is-overlay box" id="loginDiv">
+
+        <!--    Login Form    -->
+        <form method="" action="" id="loginForm">
+            <div class="field">
+                <label class="label">Username</label>
+                <div class="control">
+                    <input type="text" placeholder="Username" id="usernameField" class="input is-primary">
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Password</label>
+                <div class="control">
+                    <input type="password" id="passwordField" placeholder="Password" class="input is-primary">
+                </div>
+            </div>
+            <div class="field">
+                <div class="control">
+                    <input type="submit" value="Login" class="button">
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+    <!--  List users div  -->
+    <div class="is-overlay box is-hidden" id="usersListDiv">
+        <p class="buttons">
+            <button class="button is-danger is-outlined is-pulled-right" onclick="hideListUsers()">
+                <span>Close</span>
+                <span class="icon is-small">
+                    <i class="fas fa-times"></i>
+                </span>
+            </button>
+        </p>
+    </div>
+</section>
+
+
+<script>
+    let clientId = "{{keycloak_client_id}}";
+
+    let keycloakTokenUrl = "{{keycloak_token_url}}";
+    let keycloakUsersUrl = "{{keycloak_users_url}}";
+    let commandServer = "{{command_server}}";
+
+    let accessToken = "";
+    let refreshToken = "";
+
+    let userIsLoggedIn = false;
+
+    let userID = "";
+
+    let socket = null;
+
+    let access_url = "{{access_url}}";
+
+</script>
+<script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+
+<script src="{{access_url}}/static/users.js"></script>
+<script src="{{access_url}}/static/websockets.js"></script>
+<script src="{{access_url}}/static/messages.js"></script>
+<script src="{{access_url}}/static/conversations.js"></script>
+<script src="{{access_url}}/static/login.js"></script>
+</body>
+</html>
