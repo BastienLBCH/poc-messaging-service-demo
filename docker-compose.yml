@@ -7,8 +7,6 @@ services:
     environment:
       ZOOKEEPER_CLIENT_PORT: 2181
       ZOOKEEPER_TICK_TIME: 2000
-    ports:
-      - "22181:2181"
     networks:
       - my-solution-network
 
@@ -17,8 +15,6 @@ services:
     container_name: broker-demo
     depends_on:
       - zookeeper
-    ports:
-      - "29092:29092"
     environment:
       KAFKA_BROKER_ID: 1
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
@@ -66,26 +62,24 @@ services:
   query-server:
     build: poc-messaging-service-queries-main
     container_name: query-server-demo
-    ports:
-      - "8001:80"
     depends_on:
       - broker
     environment:
       KAFKA_BOOTSTRAP_SERVER: broker:9092
       KAFKA_GROUP_ID: messaging_service
       KAFKA_TOPIC: messaging-service
-      KEYCLOAK_PUBLIC_KEY: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAp1TNEalVuAp+rIUX6qCw5+LTl0uLx5fb4IGvXF+D+1iSFSQ8xk4xXP7VX7dZ2IUInlqDyadLhhfQHZ4nv8sapUvSlU/JbwrLNxrx4I/Nn9tT+5aAyR2R6rhZqI8kge5vaSyOTuEbIPcGH0/0UJX032kdW7jDwB4bgJVE/KnngOmyld7ye+wwM6Huz9J+wMvCmL5c0TYgcnvkG9VpcnRb0eZYem7xt1aTjAxGkANKNldrZ87WubY9x++2FTUk4FWhB2VDgLsFvcST7dIqxG9XmXVLvtHvjUfewLV5kBD0Is1yB88s/IxLB+YHcf455d119yYM4zb7ImrGl6oyQ+l8AQIDAQAB
+      KEYCLOAK_PUBLIC_KEY: REALM_PUBKEY
       KEYCLOAK_ALG: RS256
 
       # Optionals arguments for using integrated frontend
       KEYCLOAK_CLIENT_ID: login-client
-      KEYCLOAK_USERS_URL: http://192.168.1.17/admin/realms/poc/users/
-      COMMAND_SERVER: http://192.168.1.17
-      ACCESS_URL: http://192.168.1.17
+      KEYCLOAK_USERS_URL: http://localhost/admin/realms/poc/users/
+      COMMAND_SERVER: http://localhost
+      ACCESS_URL: http://localhost
 
 
       # Used for integrated frontend & unit testing
-      KEYCLOAK_TOKEN_URL: http://192.168.1.17/realms/poc/protocol/openid-connect/token
+      KEYCLOAK_TOKEN_URL: http://localhost/realms/poc/protocol/openid-connect/token
     networks:
       - my-solution-network
 
@@ -93,10 +87,8 @@ services:
   command-server:
     build: poc-messaging-service-commands-main/pocMessagingServiceCommands/
     container_name: command-server-demo
-    ports:
-      - "8000:80"
     environment:
-      KEYCLOAK_PUBLIC_KEY: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAp1TNEalVuAp+rIUX6qCw5+LTl0uLx5fb4IGvXF+D+1iSFSQ8xk4xXP7VX7dZ2IUInlqDyadLhhfQHZ4nv8sapUvSlU/JbwrLNxrx4I/Nn9tT+5aAyR2R6rhZqI8kge5vaSyOTuEbIPcGH0/0UJX032kdW7jDwB4bgJVE/KnngOmyld7ye+wwM6Huz9J+wMvCmL5c0TYgcnvkG9VpcnRb0eZYem7xt1aTjAxGkANKNldrZ87WubY9x++2FTUk4FWhB2VDgLsFvcST7dIqxG9XmXVLvtHvjUfewLV5kBD0Is1yB88s/IxLB+YHcf455d119yYM4zb7ImrGl6oyQ+l8AQIDAQAB
+      KEYCLOAK_PUBLIC_KEY: REALM_PUBKEY
       KEYCLOAK_ALG: RS256
       KEYCLOAK_TOKEN_URL: http://api-gateway/realms/poc/protocol/openid-connect/token
       BOOTSTRAP_SERVER: broker:9092
