@@ -34,7 +34,7 @@ Name it "poc" then click on create
 ![Alt text](doc/create_realm.png "Realm creation")
 
 Now that your realm is created, on the left menu, find the "Realm Settings" tab, click on it then, on the top right 
-corner click on "Action", then partial import and select the file "real-export.json" in this project's "keycloak" folder
+corner click on "Action", then "Partial import" and select the file "realm-export.json" in this project's "keycloak" folder
 
 ![Alt text](doc/import_button_file.png "Import file")
 
@@ -88,7 +88,7 @@ You'll be able to access the demo interface at this address :
 >  - COMMAND_SERVER
 >  - ACCESS_URL
 > 
-> on lines 76, 77, 78 and replace "localhost" by your computer ip address.
+> on lines 76, 77, 78 and replace "localhost" by your computer ip address. Once done restart the service with the command given above
 
 > [!NOTE]
 > Kafka can be slow to start, so when you will create your first conversation it can take a bit of time to first appear.
