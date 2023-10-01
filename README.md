@@ -106,5 +106,5 @@ You should see this interface, let's take a quick tour :
 2. **Adding a user to a conversation**: Once your conversation is created, select it then write the userid of a user to add
 it to the conversation.
 3. **Information button** : Clicking on it will list the created users you can add to a conversation. UI being bad, the button to get back to this screen is on the top left.
-4. **Message form** : Place to write your message. To send it click on "Send" or press enter
+4. **Message form** : Place to write your message. To send it click on "Send" or press enter. Make sure you selected a conversation before sending a message.
 
