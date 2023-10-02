@@ -74,7 +74,7 @@ Find the RSA generated key using the RS256 algorithm :
 Click on "Public key" on the right, then copy the key showing on screen:
 ![Alt text](doc/public_key.png "Public key")
 
-Once you have this key, go back to the docker-compose.yml file and on lines 71 and 91, replace "REALM_PUBKEY" by the key you just
+Once you have this key, open the docker-compose.yml file in a text editor and, on lines 71 and 91, replace "REALM_PUBKEY" by the key you just
 copied:
 ![Alt text](doc/docker-compose-yml.png "Public key")
 
