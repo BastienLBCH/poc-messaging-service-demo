@@ -96,6 +96,12 @@ You'll be able to access the demo interface at this address :
 
 ## Usage
 ### Demo frontend
+
+> [!NOTE]
+> As a reminder, this frontend is developed for easier testing, as ***demo*** purpose. 
+> Please take note that I am not a frontend developer, 
+> never pretented to be one and that on a "real" situation I would have developped it in a third project.
+
 Access to [http://localhost](http://localhost)
 Write the credentials of a user you created then click on login or press enter.
 
