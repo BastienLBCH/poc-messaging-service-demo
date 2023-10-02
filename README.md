@@ -10,6 +10,13 @@ This file also provides all necessary services and a Nginx reverse proxy if the 
   - 80
   - 8080
 
+Start to download the project on your computer, and change your working directory to the project folder.
+It can be achieved using these commands if you have github installed:
+```shell
+~$ git clone https://github.com/BastienLBCH/poc-messaging-service-demo.git
+~$ cd poc-messaging-service-demo/ 
+```
+(don't copy the ~$ it's just there to show that the command starts)
 
 To deploy the project, first start all the services using : 
 ```bash
