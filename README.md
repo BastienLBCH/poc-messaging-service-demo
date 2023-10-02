@@ -9,6 +9,7 @@ This file also provides all necessary services and a Nginx reverse proxy if the 
 - Nothing listening on ports :
   - 80
   - 8080
+- 2GB disk space
 
 Start to download the project on your computer, and change your working directory to the project folder.
 It can be achieved using these commands if you have github installed:
