@@ -89,7 +89,7 @@ You'll be able to access the demo interface at this address :
 
 
 > [!IMPORTANT]
-> This repo is only available on localhost. To open it to other devices on your network, go back to the dockerfile and,
+> This service is currently only available on your machine. To open it to other devices on your network, go back to the dockerfile and,
 > for the query server, find the options :
 >  - KEYCLOAK_USERS_URL
 >  - COMMAND_SERVER
