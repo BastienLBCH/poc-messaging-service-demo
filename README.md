@@ -122,3 +122,134 @@ it to the conversation.
 3. **Information button** : Clicking on it will list the created users you can add to a conversation. UI being bad, the button to get back to this screen is on the top left.
 4. **Message form** : Place to write your message. To send it click on "Send" or press enter. Make sure you selected a conversation before sending a message.
 
+
+### API
+
+Base URL: http://localhost
+
+#### Create a conversation
+- **Endpoint**: /conversations/
+- **Method**: POST
+
+Headers :
+
+| Attribute       |                  Value |
+|:----------------|-----------------------:|
+| Authorization   |  Bearer {access token} |
+
+
+Body :
+(Can either be raw using the JSON syntax or a form)
+
+| Attribute |               Value |
+|:----------|--------------------:|
+| name      | {conversation name} |
+---
+
+#### Delete a conversation
+- **Endpoint**: /conversations/{conversation id}/delete
+- **Method**: DELETE
+
+Headers :
+
+| Attribute       |                  Value |
+|:----------------|-----------------------:|
+| Authorization   |  Bearer {access token} |
+---
+
+
+#### Add user to a conversation
+- **Endpoint**: /conversations/{conversation id}/members
+- **Method**: POST
+
+Headers :
+
+| Attribute       |                  Value |
+|:----------------|-----------------------:|
+| Authorization   |  Bearer {access token} |
+
+
+Body :
+(Can either be raw using the JSON syntax or a form)
+
+| Attribute       |                                                 Value |
+|:----------------|------------------------------------------------------:|
+| participant_id  |           {Id of the user to add to the conversation} |
+---
+
+#### Remove user from a conversation
+- **Endpoint**: /conversations/{conversation id}/members/{user id}/remove
+- **Method**: POST
+
+Headers :
+
+| Attribute       |                  Value |
+|:----------------|-----------------------:|
+| Authorization   |  Bearer {access token} |
+
+---
+
+#### Send a message to a conversation
+- **Endpoint**: /conversations/{conversation id}
+- **Method**: POST
+
+Headers :
+
+| Attribute       |                  Value |
+|:----------------|-----------------------:|
+| Authorization   |  Bearer {access token} |
+
+
+Body :
+(Can either be raw using the JSON syntax or a form)
+
+| Attribute        |                                                 Value |
+|:-----------------|------------------------------------------------------:|
+| message_content  |                 {Message to send to the conversation} |
+
+---
+
+#### List all user's conversation
+- **Endpoint**: /conversations
+- **Method**: GET
+
+Headers :
+
+| Attribute       |                  Value |
+|:----------------|-----------------------:|
+| Authorization   |  Bearer {access token} |
+
+---
+
+#### Get all messages from a conversation
+- **Endpoint**: /conversations/{conversation_id}
+- **Method**: GET
+
+Headers :
+
+| Attribute       |                  Value |
+|:----------------|-----------------------:|
+| Authorization   |  Bearer {access token} |
+
+---
+
+
+#### Get all members from a conversation
+- **Endpoint**: /conversations/{conversation id}/members
+- **Method**: GET
+
+Headers :
+
+| Attribute       |                  Value |
+|:----------------|-----------------------:|
+| Authorization   |  Bearer {access token} |
+
+---
+
+
+### Connect the websocket
+The service uses websockets to send events in real time to the frontend, so it can update without reloading everything.
+
+- **endpoint**: ws://{base url}/ws/{token}
+
+The token in the url is the Json Web Token provided on login
