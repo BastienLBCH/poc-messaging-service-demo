@@ -4,6 +4,10 @@ This project combines both sides of the messaging service POC (commands and quer
 This file also provides all necessary services and a Nginx reverse proxy if the role of an API Gateway.
 
 ## Installation
+> [!NOTE]
+> Depending of your OS and how you configured it, docker might require that you run the commands as root. So, if
+> a docker command raise a permission error you should probably run it with sudo. 
+
 ### Requirements
 - Having docker installed
 - Nothing listening on ports :
