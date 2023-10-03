@@ -111,8 +111,8 @@ You'll be able to access the demo interface at this address :
 
 > [!NOTE]
 > As a reminder, this frontend is developed for easier testing, as ***demo*** purpose. 
-> Please take note that I am not a frontend developer, 
-> never pretented to be one and that on a "real" situation I would have developped it in a third project.
+> Please take note that I am not a frontend developer, never pretented to be one 
+> and that on a "real" situation I would have developped it in another service with an improved UI.
 
 Access to [http://localhost](http://localhost)
 Write the credentials of a user you created then click on login or press enter.
@@ -126,6 +126,7 @@ it to the conversation.
 3. **Information button** : Clicking on it will list the created users you can add to a conversation. UI being bad, the button to get back to this screen is on the top left.
 4. **Message form** : Place to write your message. To send it click on "Send" or press enter. Make sure you selected a conversation before sending a message.
 
+Before sending a message or adding a user to a conversation, please make sure to select the conversation before. 
 
 ### API
 
